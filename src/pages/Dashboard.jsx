@@ -8,6 +8,7 @@ import CartButtonMobile from "../components/CartButtonMobile/CartButtonMobile";
 import ProductSelected from "../components/ProductSelected/ProductSelected";
 import ProductsInCart from "../components/ProductsInCart/ProductsInCart";
 import Modal from "../components/Modal/Modal";
+import WompiButton from "../components/WompiButton/WompiButton";
 import {
     ContainerSections,
     ContainerProductsSection,
@@ -38,7 +39,7 @@ const Dashboard = () => {
 
     const handleShowProducts = useCallback(() => {
         setShowCart(false)
-    }, [showCart])
+    }, [])
 
     const { products } = useSelector(state => state.products.products)
     win.setItem("products", JSON.stringify(products))
@@ -74,6 +75,10 @@ const Dashboard = () => {
                         :
                         <ProductSelected onShowModal={toggleShowModal} />
                     }
+                    {/* <div className="absolute top-0 r-0">
+                        <WompiButton />
+                    </div> */}
+
                 </SideBarContainer>
                 {showModal && (
                     <Modal onShowModal={toggleShowModal} hiddenButton={!showCart}>
@@ -85,7 +90,6 @@ const Dashboard = () => {
                     </Modal>
                 )
                 }
-
             </ContainerSections>
         </Container>
     );

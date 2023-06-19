@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { removeProductToCart } from "../../redux/slices/cart";
+import WompiButton from "../WompiButton/WompiButton";
 import {
     ShoppinCart,
     ContainerProduct,
@@ -27,6 +28,18 @@ const ProductsInCart = () => {
     const handleRemoveItemToCart = (index) => {
         dispatch(removeProductToCart(index))
     }
+
+    function randomCode() {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let code = '';
+
+        for (let i = 0; i < 8; i++) {
+            const index = Math.floor(Math.random() * chars.length);
+            code += chars.charAt(index);
+        }
+        return code;
+    }
+
     return (
         <ShoppinCart>
             <Text>Shopping Cart</Text>
@@ -43,7 +56,9 @@ const ProductsInCart = () => {
             <ContainerTotal>
                 <TextTotal>Total:</TextTotal>
                 <TextPrice>${total}</TextPrice>
+
             </ContainerTotal>
+            <WompiButton total={total} code={randomCode} />
         </ShoppinCart>
     );
 }
