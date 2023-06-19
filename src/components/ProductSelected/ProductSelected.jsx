@@ -87,16 +87,16 @@ const ProductSelected = ({ onShowModal }) => {
                         </ContainerImage>
                         <ContainerDescription>
                             <SectionButtons>
-                                <TextName>{productSelected.name} · <TextPrice>${productSelected.price}</TextPrice></TextName>
+                                <TextName data-testid='product-selected-name'>{productSelected.name} · <TextPrice>${productSelected.price}</TextPrice></TextName>
                                 <ContainerButtons>
-                                    <ButtonMinus onClick={handleMinusQuantity}>-</ButtonMinus>
-                                    <ButtonPlus onClick={handlePlusQuantity}>+</ButtonPlus>
+                                    <ButtonMinus onClick={handleMinusQuantity} data-testid="minus-button">-</ButtonMinus>
+                                    <ButtonPlus onClick={handlePlusQuantity} data-testid="plus-button">+</ButtonPlus>
                                 </ContainerButtons>
                             </SectionButtons>
                             <TextDescription>
                                 {productSelected.description}
                             </TextDescription>
-                            <AddCartButton onClick={handleAddtoCart} blockButton={blockAddCart}>Add Cart</AddCartButton>
+                            <AddCartButton data-testid="add-to-cart-button" onClick={handleAddtoCart} blockButton={blockAddCart}>Add Cart</AddCartButton>
                         </ContainerDescription>
                     </ContainerInfoProduct>
                 )

@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { ContainerCart, CartButton, Text, TextPrice, ButtonClose } from "./styles";
 import cartIconLight from '../../assets/cart.svg'
 import cartIconDark from '../../assets/cart-dark.svg'
-const Cart = ({ onShowCart, showCart, onShowModal }) => {
+const CartButtonMobile = ({ onShowCart, showCart, onShowModal }) => {
     const { cart } = useSelector(state => state.cart)
     const handleSetStates = () => {
         onShowCart()
@@ -13,11 +13,11 @@ const Cart = ({ onShowCart, showCart, onShowModal }) => {
         :
         0
     return (
-        <ContainerCart>
+        <ContainerCart data-testid="cart-button-mobile">
             <CartButton onClick={handleSetStates} bgColorLight={showCart}>
                 <div className="p-2 flex">
                     <img src={showCart ? cartIconDark : cartIconLight} alt='cart icon' />
-                    <TextPrice textColorDark={showCart}>${total}</TextPrice>
+                    <TextPrice textColorDark={showCart} data-testid="text-price-button">${total}</TextPrice>
                 </div>
                 {showCart && <ButtonClose>X</ButtonClose>}
             </CartButton>
@@ -25,4 +25,4 @@ const Cart = ({ onShowCart, showCart, onShowModal }) => {
     );
 }
 
-export default Cart;
+export default CartButtonMobile;

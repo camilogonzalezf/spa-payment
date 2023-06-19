@@ -39,7 +39,7 @@ const Card = ({ product, onShowProducts, onShowModal }) => {
     return (
         <ContainerImage onClick={handleSetSelectedProduct}>
             {showQuantity && <QuantityCircle>{quantity}</QuantityCircle>}
-            <img width={widthImage} height={350} src={product.url} alt='product' />
+            <img width={widthImage} height={350} src={product.url} alt='product' data-testid='product-on-display-img' />
         </ContainerImage>
     );
 }

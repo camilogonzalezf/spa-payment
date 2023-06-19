@@ -17,7 +17,7 @@ import {
 } from "./styles/dashboard-styles";
 
 
-const Login = () => {
+const Dashboard = () => {
     const [showCart, setShowCart] = useState(false)
     const [showModal, setShowModal] = useState(false)
     const dispatch = useDispatch()
@@ -91,5 +91,5 @@ const Login = () => {
     );
 }
 
-export default Login;
+export default Dashboard;
 
